@@ -1,0 +1,80 @@
+rules_version = '2';
+service cloud.firestore {
+ match /databases/{database}/documents {
+  function member() {
+   return request.auth != null &&
+    get(/databases/$(database)/documents/katuri_members/$(request.auth.uid)).data.approved == true;
+  }
+  function admin() {
+   return member() && get(/databases/$(database)/documents/katuri_members/$(request.auth.uid)).data.admin == true;
+  }
+  match /katuri_public_events/{eventId} {
+   allow read: if true;
+   allow create, update: if admin()
+    && request.resource.data.keys().hasAll(['id','title','date','time','tentative'])
+    && request.resource.data.keys().hasOnly(['id','title','titleEn','date','time','tentative'])
+    && (!('titleEn' in request.resource.data) || (request.resource.data.titleEn is string && request.resource.data.titleEn.size() <= 150))
+    && request.resource.data.id == eventId
+    && request.resource.data.title is string && request.resource.data.title.size() > 0 && request.resource.data.title.size() <= 150
+    && request.resource.data.date is string && request.resource.data.date.matches('^[0-9]{4}-[0-9]{2}-[0-9]{2}$')
+    && request.resource.data.time is string && request.resource.data.time.size() <= 100
+    && request.resource.data.tentative is bool;
+   allow delete: if admin();
+  }
+  match /katuri_settings/video_order {
+   allow read: if true;
+   allow create, update: if admin()
+    && request.resource.data.keys().hasAll(['ids','updatedAt'])
+    && request.resource.data.keys().hasOnly(['ids','updatedAt'])
+    && request.resource.data.ids is list
+    && request.resource.data.ids.size() <= 1000
+    && request.resource.data.ids.toSet().size() == request.resource.data.ids.size()
+    && request.resource.data.updatedAt == request.time;
+   allow delete: if false;
+  }
+  match /katuri_videos/{videoId} {
+   allow read: if true;
+   allow create, update: if admin()
+    && request.resource.data.keys().hasAll(['kind','title','url','description','active','updatedAt'])
+    && request.resource.data.keys().hasOnly(['kind','title','url','description','active','updatedAt'])
+    && videoId.matches('^[A-Za-z0-9_-]{11}$')
+    && request.resource.data.kind == 'link'
+    && request.resource.data.url == 'https://www.youtube.com/watch?v=' + videoId
+    && request.resource.data.title is string && request.resource.data.title.size() > 0 && request.resource.data.title.size() <= 150
+    && request.resource.data.description is string && request.resource.data.description.size() <= 300
+    && request.resource.data.active is bool
+    && request.resource.data.updatedAt == request.time;
+   allow delete: if false;
+  }
+  match /katuri_members/{uid} {
+   allow get: if request.auth != null && request.auth.uid == uid;
+   allow list, write: if false;
+  }
+  match /katuri_events/{eventId} {
+   allow read: if member();
+   allow create, update: if admin()
+    && request.resource.data.keys().hasOnly(['title','meetingTime','meetingPlace','note','dances'])
+    && request.resource.data.title is string
+    && request.resource.data.meetingTime is string
+    && request.resource.data.meetingPlace is string
+    && request.resource.data.note is string
+    && request.resource.data.dances is map;
+   allow delete: if false;
+   match /dances/{danceId}/comments/{commentId} {
+    allow read: if member();
+    allow create: if member()
+     && danceId in get(/databases/$(database)/documents/katuri_events/$(eventId)).data.dances
+     && request.resource.data.keys().hasAll(['authorId','authorName','text','createdAt'])
+     && request.resource.data.keys().hasOnly(['authorId','authorName','text','createdAt'])
+     && request.resource.data.authorId == request.auth.uid
+     && request.resource.data.authorName is string
+     && request.resource.data.authorName.size() > 0 && request.resource.data.authorName.size() <= 100
+     && request.resource.data.text is string
+     && request.resource.data.text.size() > 0 && request.resource.data.text.size() <= 500
+     && request.resource.data.createdAt == request.time;
+    allow delete: if member() && resource.data.authorId == request.auth.uid;
+    allow update: if false;
+   }
+  }
+ }
+}

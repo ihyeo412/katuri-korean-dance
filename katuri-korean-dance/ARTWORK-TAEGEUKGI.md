@@ -1,0 +1,7 @@
+# Taegeukgi background
+
+Edited with the built-in image generation tool from the red hanbok group illustration. Current asset: `assets/katuri-taegeukgi-group.png`. Previous versions preserved.
+
+## Final prompt
+
+Edit only the BACKGROUND of this illustration to a recognizable correctly arranged South Korean national flag, Taegeukgi (태극기): white field, central red-and-blue taegeuk circle with red upper portion and blue lower portion separated by the traditional flowing S curve, and four black trigrams. Correct positions: upper left GEON three unbroken bars; upper right GAM broken/unbroken/broken; lower left RI unbroken/broken/unbroken; lower right GON three broken bars. Bars form parallel diagonal groups in the standard Korean flag orientation. Replace the existing plain salmon circle and cream backdrop with this flag background. Compose flag motifs so they are recognizable behind the dancers and the corner trigrams remain visible in open background space, while preserving the foreground characters. Keep EXACTLY the same five cute round Katuri cartoon birds, same faces, dot eyes, simple styling, poses, white red-blossom jeogori, crimson skirts with navy hems, dark sashes and white ties, white beoseon socks, small tails. No fans, extra characters, extra limbs, photorealism, flags held in hands, poles, text, logos or watermarks. Landscape 3:2, clean minimalist flat illustration, full group inside frame. The ONLY requested change is the background to Taegeukgi.

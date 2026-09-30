@@ -1,0 +1,7 @@
+# Group fan dance hero
+
+Made with the built-in image generation tool using the solo fan dancer as the edit reference. Current asset: `assets/katuri-fan-dance-group.png`. Earlier versions are preserved.
+
+## Final prompt
+
+Transform the provided single cartoon female pheasant fan dancer into a coordinated GROUP of exactly FIVE adorable female pheasant dancers performing Korean buch aechum fan dance together. Keep the reference character design, big sparkling eyes, rosy cheeks, happy faces, brown speckled feathers and tails, ivory floral jeogori, jade-green floral chima and vermilion ribbons, white Korean beoseon cloth socks completely covering all feet and ankles. No bare bird claws or toes. Each dancer holds two pink feather-edged floral folding fans, with plausible wing-hand grips. Arrange five clearly distinct full-body dancers in a graceful shallow semicircle, center dancer slightly forward and two dancers to each side, fans forming an elegant connected scalloped flower-like wave overhead and outward. All five faces visible, no merged bodies, no extra limbs. Preserve polished sweet 2D cartoon illustration with delicate warm outlines and soft shading. Minimal warm ivory paper background and one muted red sun behind the group. Landscape 3:2 composition suitable for a website cover; keep entire group, fans and socked feet inside frame with comfortable margins. No text, watermark, logos, stage equipment or audience.

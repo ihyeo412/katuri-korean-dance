@@ -1,0 +1,7 @@
+# Red hanbok group hero
+
+Edited with the built-in image generation tool. The previous simple cartoon is the edit target; the user-provided photograph is a clothing reference only. Current asset: `assets/katuri-red-hanbok-group.png`. Earlier versions are preserved.
+
+## Final prompt
+
+Use image 1 as the EDIT TARGET: the minimalist cartoon of exactly five cute round Katuri bird mascots. Use image 2 ONLY as a CLOTHING REFERENCE, not for faces, people, background or photographic style. Change only the five mascots' clothes to match the costumes in image 2: white jeogori with a few bold simple red blossom motifs on slender dark branches, full rich crimson-red chima skirts with dark navy blue edging and a small glimpse of navy lining, dark waist sash with a long simple white tie and a tiny gold accent. Translate the floral pattern into a few clean flat shapes so the mascots remain VERY SIMPLE and adorable, not ornate. Keep the exact round brown-and-cream heads, dot eyes, tiny beaks, pink cheeks, rounded tiny tails, existing raised sleeve dance poses, group of five, white beoseon socks covering all feet, clean warm outlines, flat colors, landscape composition and ivory background with pale red circle from image 1. No fans, no realistic feathers, no detailed bird anatomy, no claws, no human faces, no hair, no extra characters, no text. Preserve all five full figures within frame. Only costume redesign, do not increase rendering complexity.
